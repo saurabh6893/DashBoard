@@ -9,7 +9,7 @@ const Navbar = () => {
     display: isHover ? "inline" : "none",
   }
   const bar = {
-    transitionDuration: '0.5s',
+    transitionDuration: '1s',
     transitionStyle: 'easeInOut',
     width: isHover ? "200px" : "100px",
   }
@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to='/' ><div className="linkbox">
           <h1 style={expansion}>Home</h1><FiHome />
         </div></Link>
-        <Link to='/formx'><div className="linkbox"><h1 style={expansion}>form</h1><FaWpforms /></div></Link>
+        <Link to='/formx'><div className="linkbox"><h1 style={expansion}>Form</h1><FaWpforms /></div></Link>
         <Link to='/display'><div className="linkbox"><h1 style={expansion}>Display</h1 ><ImDisplay /></div></Link>
       </div >
     </nav >
