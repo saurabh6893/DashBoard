@@ -5,14 +5,16 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-
-
+import { Person } from '../App'
+import { useContext } from 'react'
+import { AppContext } from '../App'
+import { useNavigate } from 'react-router-dom'
 
 // const navigate = useNavigate();
 
 const Formx: React.FC = () => {
-
-  // const [data, setData] = useState({})
+  const { setData }: any = useContext(AppContext)
+  const navik = useNavigate()
   const schema = yup.object().shape({
     firstname: yup.string().required(),
     lastname: yup.string().required(),
@@ -28,29 +30,14 @@ const Formx: React.FC = () => {
 
   const onSubmit = (d: any) => {
     console.log(d)
-  }
-  enum country {
-    India = 'India',
-    Usa = 'Usa',
-    Unitedkingdom = 'Unitedkingdom',
-    Russia = 'Russia',
-    China = 'China',
-    Egypt = 'Egypt',
-    Italy = 'Italy',
-    Denmark = 'Denmark',
-    Sweden = 'Sweden',
+    setData(d)
+    navik('/display')
   }
 
 
 
-  interface Person {
-    firstname: string;
-    lastname: string;
-    age: number;
-    email: string;
-    country: country;
-    phone: number;
-  }
+
+
   const boxstyle = {
     backgroundColor: 'white', color: 'black',
     width: '100%'
@@ -110,6 +97,7 @@ const Formx: React.FC = () => {
         </div>
 
       </form>
+
 
     </div >
 
