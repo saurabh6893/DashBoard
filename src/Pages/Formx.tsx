@@ -2,7 +2,7 @@ import React from 'react'
 
 // import { useNavigate } from 'react-router-dom'
 
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
@@ -11,24 +11,24 @@ import * as yup from 'yup'
 // const navigate = useNavigate();
 
 const Formx: React.FC = () => {
+
+  // const [data, setData] = useState({})
   const schema = yup.object().shape({
     firstname: yup.string().required(),
     lastname: yup.string().required(),
     email: yup.string().email().required(),
     age: yup.number().required().positive().min(21).integer(),
     country: yup.string().required(),
-    gender: yup.string().required(),
     phone: yup.number().required(),
-    employed: yup.string().required(),
   })
 
-  const onSubmit: SubmitHandler<Person> = (data: any) => {
-    console.log(data)
-    // navigate('/Display');
-  }
   const { register, handleSubmit } = useForm<Person>({
     resolver: yupResolver(schema),
   })
+
+  const onSubmit = (d: any) => {
+    console.log(d)
+  }
   enum country {
     India = 'India',
     Usa = 'Usa',
@@ -41,11 +41,6 @@ const Formx: React.FC = () => {
     Sweden = 'Sweden',
   }
 
-  enum gender {
-    male = 'male',
-    female = 'female',
-    other = 'other'
-  }
 
 
   interface Person {
@@ -53,95 +48,69 @@ const Formx: React.FC = () => {
     lastname: string;
     age: number;
     email: string;
-    gender: gender;
     country: country;
     phone: number;
-    employed: boolean;
   }
-
+  const boxstyle = {
+    backgroundColor: 'white', color: 'black',
+    width: '100%'
+  }
   return (
 
-    <div style={{ backgroundColor: 'white', color: 'black' }}>
+    <div className='formbox' style={boxstyle}>
 
       {/* Main App Body  Starts */}
       <header>
-        <h1 className="title" style={{ color: 'black', fontSize: '50px' }}>
+        <h1 className="title">
           JOBSTAX
         </h1>
       </header>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className='namebox'>
           <label >
-            First Name
+            Full Name
           </label>
-          <input {...register('firstname')} />
-        </div>
-
-        <div>
-          <label>
-            Last Name
-          </label>
-          <input {...register('lastname')} />
+          <input placeholder="first Name" {...register("firstname")} />
+          <input placeholder="last Name" {...register("lastname")} />
         </div>
 
         <div>
           <label >
-            Email Address
+            Contact details
           </label>
-          <input {...register('email')}></input>
+          <input placeholder='Email adress' {...register("email")} />
+          <input placeholder='phone number' {...register("phone")} />
         </div>
 
 
-        <div>
-          <label >
-            Phone Number
-          </label>
-          <input {...register('phone')}></input>
-        </div >
 
 
         <div>
           <label >
             Age
           </label>
-          <input {...register('age')} />
+          <input placeholder='age' {...register("age")} />
         </div>
 
         <div>
-          <label >
+          <label>
             Country
           </label>
-          <input {...register('country')} />
+          <input placeholder='Country' {...register("country")} />
         </div >
 
-
-        <div>
-          <label>gender</label>
-          <label>Male</label>
-          <label>Female</label>
-          <label>other</label>
+        <div className="butonz">
+          <button type='submit'>
+            Store Data
+          </button>
+          <button className='rsx'>
+            Reset
+          </button>
         </div>
-
-
-        <div>
-          <label>Employed</label>
-        </div>
-        <div>
-          <label>UnEmployed</label>
-        </div>
-
-        <button>
-          Store Data
-        </button>
-        <button>
-          Reset
-        </button>
-
-
-
 
       </form>
+
     </div >
 
 

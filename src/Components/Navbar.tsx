@@ -17,8 +17,11 @@ const Navbar = () => {
   const HoverOn = () => {
     setIsHover(true)
   }
+
   const HoverOff = () => {
-    setIsHover(false)
+    setTimeout(() => {
+      setIsHover(false)
+    }, 1000)
   }
 
   return (

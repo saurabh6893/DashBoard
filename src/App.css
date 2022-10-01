@@ -1,17 +1,23 @@
 .App {
   text-align: center;
   padding: 0%;
+  margin: 0%;
   max-height: 100%;
 }
+
 .navbox {
+  z-index: 10;
   padding: 0;
   width: 10%;
   position: absolute;
+  top: 0;
+  left: 0;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: white;
   font-size: 20px;
   height: 100%;
   margin: 0%;
@@ -24,7 +30,10 @@
   align-items: center;
   justify-content: space-between;
 }
-
+body {
+  margin-top: 0%;
+  padding: 0;
+}
 .linkbox > svg {
   font-size: 35px;
   margin: 10px;
@@ -35,4 +44,71 @@
   color: black;
   font-weight: bold;
   text-transform: Capitalized;
+}
+
+.title {
+  display: flex;
+  z-index: 5;
+  width: 100%;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 25vh;
+  background-color: black;
+  font-size: 80px;
+}
+
+.namebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: row;
+}
+input {
+  margin: 10px 50px 10px 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.butonz {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.butonz > button {
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  padding: 1% 5% 1% 5%;
+  margin: 2% 5% 2% 5%;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: gray;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+button:active {
+  background-color: #a7171a;
+  color: white;
+}
+
+.rsx:active {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    236deg,
+    rgba(0, 0, 0, 1) 9%,
+    rgba(212, 0, 0, 1) 72%
+  );
+  color: white;
 }
