@@ -112,3 +112,24 @@ button:active {
   );
   color: white;
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 100px;
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 25%);
+  padding: 5%;
+  border: 3px solid black;
+  align-items: center;
+}
+
+.contacx {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
